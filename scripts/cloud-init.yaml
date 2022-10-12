@@ -1,0 +1,12 @@
+#cloud-config
+
+package_update: true
+package_upgrade: true
+timezone: "America/Sao_Paulo"
+users:
+  - name: ${username}
+    shell: /bin/bash
+    ssh-authorized-keys:
+      - ${ssh_public_key}
+runcmd:
+  - snap install amazon-ssm-agent --classic
